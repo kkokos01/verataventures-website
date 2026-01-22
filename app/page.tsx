@@ -5,10 +5,10 @@ import { useState } from 'react'
 export default function Home() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [focused, setFocused] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Connect to your email service (e.g., Resend, ConvertKit)
     console.log('Email submitted:', email)
     setSubmitted(true)
   }
@@ -16,30 +16,61 @@ export default function Home() {
   return (
     <main style={styles.main}>
       <div style={styles.container}>
-        <h1 style={styles.title}>Verata Ventures</h1>
-        <p style={styles.subtitle}>Something exciting is coming</p>
+        {/* Logo/Brand Mark */}
+        <div style={styles.logoMark}>V</div>
 
+        {/* Main Content */}
+        <h1 style={styles.title}>Verata Ventures</h1>
+
+        <div style={styles.divider} />
+
+        <p style={styles.tagline}>
+          Building software that matters
+        </p>
+
+        <p style={styles.description}>
+          We create thoughtful software products that solve real problems.
+          <br />
+          Our first ventures are launching soon.
+        </p>
+
+        {/* Email Capture */}
         {!submitted ? (
           <form onSubmit={handleSubmit} style={styles.form}>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              required
-              style={styles.input}
-            />
-            <button type="submit" style={styles.button}>
-              Notify Me
-            </button>
+            <div style={{
+              ...styles.inputWrapper,
+              borderColor: focused ? '#000' : '#e5e7eb',
+            }}>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
+                placeholder="your@email.com"
+                required
+                style={styles.input}
+              />
+              <button type="submit" style={styles.button}>
+                Get Updates
+              </button>
+            </div>
+            <p style={styles.privacy}>
+              We respect your privacy. Unsubscribe anytime.
+            </p>
           </form>
         ) : (
-          <p style={styles.thanks}>Thanks! We'll be in touch.</p>
+          <div style={styles.successMessage}>
+            <span style={styles.checkmark}>✓</span>
+            <p>You're on the list. We'll be in touch.</p>
+          </div>
         )}
 
-        <p style={styles.footer}>
-          &copy; {new Date().getFullYear()} Verata Ventures, LLC
-        </p>
+        {/* Footer */}
+        <footer style={styles.footer}>
+          <p>&copy; {new Date().getFullYear()} Verata Ventures, LLC</p>
+          <p style={styles.location}>New Jersey, USA</p>
+        </footer>
       </div>
     </main>
   )
@@ -51,60 +82,104 @@ const styles: { [key: string]: React.CSSProperties } = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
-    padding: '20px',
+    background: '#fafafa',
+    padding: '40px 20px',
   },
   container: {
     textAlign: 'center',
-    color: '#ffffff',
-    maxWidth: '500px',
+    maxWidth: '480px',
   },
-  title: {
-    fontSize: '3rem',
-    fontWeight: '700',
-    marginBottom: '1rem',
+  logoMark: {
+    width: '60px',
+    height: '60px',
+    margin: '0 auto 40px',
+    background: '#000',
+    color: '#fff',
+    borderRadius: '12px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '28px',
+    fontWeight: '600',
     letterSpacing: '-0.02em',
   },
-  subtitle: {
-    fontSize: '1.25rem',
-    color: '#94a3b8',
-    marginBottom: '2.5rem',
+  title: {
+    fontSize: '2.5rem',
+    fontWeight: '300',
+    color: '#111',
+    letterSpacing: '-0.03em',
+    marginBottom: '16px',
+  },
+  divider: {
+    width: '40px',
+    height: '1px',
+    background: '#000',
+    margin: '0 auto 24px',
+  },
+  tagline: {
+    fontSize: '1.125rem',
+    color: '#666',
+    fontWeight: '400',
+    marginBottom: '16px',
+  },
+  description: {
+    fontSize: '0.9375rem',
+    color: '#888',
+    lineHeight: '1.7',
+    marginBottom: '40px',
   },
   form: {
+    marginBottom: '60px',
+  },
+  inputWrapper: {
     display: 'flex',
-    flexDirection: 'column',
-    gap: '1rem',
-    maxWidth: '320px',
-    margin: '0 auto',
+    border: '1px solid #e5e7eb',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    background: '#fff',
+    transition: 'border-color 0.2s',
   },
   input: {
-    padding: '14px 18px',
-    fontSize: '1rem',
-    border: '1px solid #334155',
-    borderRadius: '8px',
-    background: 'rgba(255, 255, 255, 0.05)',
-    color: '#ffffff',
+    flex: 1,
+    padding: '16px 20px',
+    fontSize: '0.9375rem',
+    border: 'none',
     outline: 'none',
+    background: 'transparent',
   },
   button: {
-    padding: '14px 24px',
-    fontSize: '1rem',
-    fontWeight: '600',
+    padding: '16px 24px',
+    fontSize: '0.9375rem',
+    fontWeight: '500',
     border: 'none',
-    borderRadius: '8px',
-    background: '#3b82f6',
-    color: '#ffffff',
+    background: '#000',
+    color: '#fff',
     cursor: 'pointer',
-    transition: 'background 0.2s',
+    transition: 'opacity 0.2s',
   },
-  thanks: {
-    fontSize: '1.1rem',
+  privacy: {
+    fontSize: '0.8125rem',
+    color: '#999',
+    marginTop: '12px',
+  },
+  successMessage: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '8px',
+    marginBottom: '60px',
+    color: '#111',
+  },
+  checkmark: {
     color: '#22c55e',
-    marginBottom: '2rem',
+    fontSize: '1.25rem',
   },
   footer: {
-    marginTop: '3rem',
-    fontSize: '0.875rem',
-    color: '#64748b',
+    fontSize: '0.8125rem',
+    color: '#999',
+  },
+  location: {
+    marginTop: '4px',
+    fontSize: '0.75rem',
   },
 }
