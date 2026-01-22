@@ -6,11 +6,28 @@ export default function Home() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [focused, setFocused] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Email submitted:', email)
-    setSubmitted(true)
+    setLoading(true)
+    setError('')
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+
+      if (!res.ok) throw new Error('Failed to subscribe')
+      setSubmitted(true)
+    } catch {
+      setError('Something went wrong. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -51,10 +68,11 @@ export default function Home() {
                 required
                 style={styles.input}
               />
-              <button type="submit" style={styles.button}>
-                Get Updates
+              <button type="submit" style={styles.button} disabled={loading}>
+                {loading ? 'Sending...' : 'Get Updates'}
               </button>
             </div>
+            {error && <p style={styles.error}>{error}</p>}
             <p style={styles.privacy}>
               We respect your privacy. Unsubscribe anytime.
             </p>
@@ -160,6 +178,11 @@ const styles: { [key: string]: React.CSSProperties } = {
   privacy: {
     fontSize: '0.8125rem',
     color: '#999',
+    marginTop: '12px',
+  },
+  error: {
+    fontSize: '0.875rem',
+    color: '#ef4444',
     marginTop: '12px',
   },
   successMessage: {
