@@ -6,6 +6,9 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 // Your email to receive notifications
 const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || 'karol@verataventures.com'
 
+// Resend Audience ID for storing contacts (create one at resend.com/audiences)
+const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID
+
 export async function POST(request: Request) {
   try {
     const { email } = await request.json()
@@ -15,6 +18,14 @@ export async function POST(request: Request) {
         { error: 'Valid email required' },
         { status: 400 }
       )
+    }
+
+    // Add to Resend Audience for persistent storage
+    if (AUDIENCE_ID) {
+      await resend.contacts.create({
+        email,
+        audienceId: AUDIENCE_ID,
+      })
     }
 
     // Send notification email to you
