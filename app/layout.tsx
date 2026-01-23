@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { AgentationWrapper } from '@/components/AgentationWrapper'
 
 export const metadata: Metadata = {
   title: 'Verata Ventures - Coming Soon',
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <AgentationWrapper />
+      </body>
     </html>
   )
 }
