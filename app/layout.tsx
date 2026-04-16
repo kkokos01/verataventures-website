@@ -3,8 +3,9 @@ import './globals.css'
 import { AgentationWrapper } from '@/components/AgentationWrapper'
 
 export const metadata: Metadata = {
-  title: 'Verata Ventures - Coming Soon',
-  description: 'Verata Ventures - Building the future of software',
+  title: 'Verata Ventures',
+  description:
+    'Verata Ventures is a privately held software studio building vertical AI products for healthcare, education, and family life. Based in New Jersey.',
 }
 
 export default function RootLayout({
