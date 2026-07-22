@@ -1,0 +1,1214 @@
+<!doctype html>
+<html lang="en" data-page-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Verata Ventures Brand Guide</title>
+    <meta
+      name="description"
+      content="Verata Ventures brand system: Live Mineral / Humanist Intelligence."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&amp;family=Instrument+Sans:wdth,wght@75..100,400..700&amp;family=Newsreader:opsz,wght@6..72,300..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --mist: #f3f7f6;
+        --paper: #fcfefd;
+        --ink: #071b18;
+        --ink-soft: #314a45;
+        --steel: #5b706b;
+        --rule: #c7d2cf;
+        --mineral: #00877e;
+        --mineral-text: #007a73;
+        --mineral-deep: #006c65;
+        --mineral-bright: #15b8aa;
+        --citron: #c7f23a;
+        --coral: #ff5a46;
+        --current: #03231f;
+        --current-surface: #07342f;
+        --current-raised: #0a4039;
+        --pale: #f4faf8;
+        --pale-muted: #b5c8c4;
+        --dark-rule: #35645d;
+        --display: 'Newsreader', Georgia, serif;
+        --sans: 'Instrument Sans', sans-serif;
+        --mono: 'Geist Mono', monospace;
+        --page-bg: var(--mist);
+        --page-text: var(--ink);
+        --page-muted: var(--ink-soft);
+        --page-rule: var(--rule);
+        --page-surface: var(--paper);
+      }
+
+      [data-page-theme='dark'] {
+        color-scheme: dark;
+        --page-bg: var(--current);
+        --page-text: var(--pale);
+        --page-muted: var(--pale-muted);
+        --page-rule: var(--dark-rule);
+        --page-surface: var(--current-surface);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--page-bg);
+        color: var(--page-text);
+        font-family: var(--sans);
+        transition: background 280ms ease, color 280ms ease;
+      }
+
+      button,
+      a {
+        font: inherit;
+      }
+
+      .shell {
+        width: min(1240px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: color-mix(in srgb, var(--page-bg) 92%, transparent);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--page-rule);
+      }
+
+      .topbar-inner {
+        min-height: 68px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .brandline {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        min-width: 0;
+      }
+
+      .brandline img {
+        width: 26px;
+        height: 32px;
+      }
+
+      .wordmark {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        color: var(--page-text);
+        white-space: nowrap;
+      }
+
+      .wordmark strong {
+        font-family: var(--display);
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+      }
+
+      .wordmark span {
+        font-family: var(--sans);
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.24em;
+      }
+
+      .meta {
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        line-height: 1.5;
+        text-transform: uppercase;
+      }
+
+      .mode-toggle {
+        border: 1px solid var(--page-rule);
+        color: var(--page-text);
+        background: transparent;
+        padding: 9px 12px;
+        cursor: pointer;
+        border-radius: 2px;
+      }
+
+      .mode-toggle:hover {
+        border-color: var(--mineral-bright);
+      }
+
+      .cover {
+        min-height: calc(100vh - 68px);
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        gap: 48px;
+        align-items: center;
+        padding: 96px 0;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+        color: var(--mineral-text);
+      }
+
+      [data-page-theme='dark'] .eyebrow {
+        color: var(--mineral-bright);
+      }
+
+      .eyebrow::before {
+        content: '';
+        width: 28px;
+        height: 2px;
+        background: currentColor;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 850px;
+        margin-bottom: 34px;
+        font-family: var(--display);
+        font-size: clamp(64px, 7.5vw, 110px);
+        font-weight: 500;
+        letter-spacing: -0.05em;
+        line-height: 0.92;
+      }
+
+      .cover-lede {
+        max-width: 620px;
+        margin-bottom: 48px;
+        color: var(--page-muted);
+        font-size: clamp(18px, 2vw, 24px);
+        line-height: 1.5;
+      }
+
+      .cover-proof {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        padding-top: 20px;
+        border-top: 1px solid var(--page-rule);
+      }
+
+      .cover-proof div {
+        display: grid;
+        gap: 7px;
+      }
+
+      .cover-proof span:last-child {
+        color: var(--page-muted);
+        font-size: 14px;
+      }
+
+      .cover-mark {
+        min-height: 560px;
+        display: grid;
+        place-items: center;
+        background: var(--current);
+        border: 1px solid var(--dark-rule);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cover-mark::after {
+        content: '';
+        position: absolute;
+        inset: auto -8% 8% 18%;
+        height: 1px;
+        background: var(--dark-rule);
+        transform: rotate(-66deg);
+        box-shadow: 26px 0 0 var(--dark-rule), 52px 0 0 var(--dark-rule);
+        opacity: 0.55;
+      }
+
+      .cover-mark img {
+        position: relative;
+        z-index: 1;
+        width: min(58%, 280px);
+      }
+
+      .cover-mark .meta {
+        position: absolute;
+        z-index: 2;
+        top: 24px;
+        left: 24px;
+        color: var(--mineral-bright);
+      }
+
+      .cover-mark .folio {
+        position: absolute;
+        z-index: 2;
+        bottom: 24px;
+        right: 24px;
+        color: var(--citron);
+      }
+
+      section {
+        padding: 112px 0;
+        border-top: 1px solid var(--page-rule);
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: 3fr 9fr;
+        gap: 32px;
+        margin-bottom: 64px;
+      }
+
+      .section-head h2 {
+        max-width: 760px;
+        font-family: var(--display);
+        font-size: clamp(42px, 5vw, 72px);
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        line-height: 0.98;
+      }
+
+      .section-head p {
+        max-width: 660px;
+        color: var(--page-muted);
+        font-size: 19px;
+        line-height: 1.6;
+      }
+
+      .section-index {
+        color: var(--mineral-text);
+      }
+
+      [data-page-theme='dark'] .section-index {
+        color: var(--mineral-bright);
+      }
+
+      .audience-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--page-rule);
+        border: 1px solid var(--page-rule);
+      }
+
+      .audience {
+        min-height: 330px;
+        padding: 32px;
+        background: var(--page-surface);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .audience h3 {
+        margin: 64px 0 18px;
+        font-family: var(--display);
+        font-size: 32px;
+        font-weight: 500;
+        letter-spacing: -0.025em;
+      }
+
+      .audience p {
+        color: var(--page-muted);
+        line-height: 1.62;
+      }
+
+      .audience .result {
+        margin-top: auto;
+        padding-top: 18px;
+        border-top: 1px solid var(--page-rule);
+        color: var(--page-text);
+        font-weight: 600;
+      }
+
+      .logo-field {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: 1px solid var(--page-rule);
+      }
+
+      .logo-example {
+        min-height: 430px;
+        display: grid;
+        place-items: center;
+        position: relative;
+        padding: 48px;
+      }
+
+      .logo-example + .logo-example {
+        border-left: 1px solid var(--page-rule);
+      }
+
+      .logo-example.light {
+        color: var(--ink);
+        background: var(--mist);
+      }
+
+      .logo-example.dark {
+        color: var(--pale);
+        background: var(--current);
+      }
+
+      .logo-lockup {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .logo-lockup img {
+        width: 86px;
+      }
+
+      .lockup-text strong {
+        display: block;
+        font-family: var(--display);
+        font-size: 42px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        line-height: 1;
+      }
+
+      .lockup-text span {
+        display: block;
+        margin-top: 12px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.32em;
+      }
+
+      .logo-example > .meta {
+        position: absolute;
+        top: 22px;
+        left: 24px;
+        color: var(--mineral-text);
+      }
+
+      .dark.logo-example > .meta {
+        color: var(--mineral-bright);
+      }
+
+      .mark-story {
+        margin-top: 32px;
+        display: grid;
+        grid-template-columns: 3fr 9fr;
+        gap: 32px;
+        padding-top: 24px;
+        border-top: 1px solid var(--page-rule);
+      }
+
+      .mark-story p {
+        max-width: 760px;
+        color: var(--page-muted);
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .palette {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 12px;
+      }
+
+      .swatch {
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 16px;
+        border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+        color: var(--ink);
+      }
+
+      .swatch.dark-text {
+        color: var(--pale);
+      }
+
+      .swatch .meta {
+        font-size: 9px;
+      }
+
+      .swatch strong {
+        font-size: 14px;
+      }
+
+      .swatch:nth-child(1),
+      .swatch:nth-child(2),
+      .swatch:nth-child(3) {
+        grid-column: span 2;
+      }
+
+      .swatch:nth-child(4),
+      .swatch:nth-child(5),
+      .swatch:nth-child(6) {
+        grid-column: span 2;
+      }
+
+      .palette-note {
+        display: grid;
+        grid-template-columns: 2fr 5fr 5fr;
+        gap: 24px;
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid var(--page-rule);
+      }
+
+      .palette-note p {
+        color: var(--page-muted);
+        line-height: 1.55;
+      }
+
+      .type-specimen {
+        border: 1px solid var(--page-rule);
+      }
+
+      .type-row {
+        display: grid;
+        grid-template-columns: 3fr 9fr;
+        gap: 32px;
+        padding: 40px;
+      }
+
+      .type-row + .type-row {
+        border-top: 1px solid var(--page-rule);
+      }
+
+      .type-role {
+        color: var(--page-muted);
+      }
+
+      .type-display {
+        font-family: var(--display);
+        font-size: clamp(48px, 6vw, 82px);
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        line-height: 0.96;
+      }
+
+      .type-sans {
+        max-width: 760px;
+        font-size: clamp(26px, 3vw, 42px);
+        line-height: 1.18;
+        letter-spacing: -0.02em;
+      }
+
+      .type-mono {
+        font-family: var(--mono);
+        font-size: clamp(13px, 1.5vw, 19px);
+        line-height: 1.7;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .rule-callout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 24px;
+        border: 1px solid var(--page-rule);
+      }
+
+      .rule-callout > div {
+        padding: 28px;
+      }
+
+      .rule-callout > div + div {
+        border-left: 1px solid var(--page-rule);
+      }
+
+      .rule-callout p {
+        margin: 14px 0 0;
+        color: var(--page-muted);
+        line-height: 1.55;
+      }
+
+      .artifact-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 24px;
+      }
+
+      .artifact {
+        position: relative;
+        min-height: 420px;
+        padding: 32px;
+        overflow: hidden;
+        border: 1px solid var(--page-rule);
+      }
+
+      .artifact.website {
+        grid-column: span 7;
+        background: var(--mist);
+        color: var(--ink);
+      }
+
+      .artifact.deck {
+        grid-column: span 5;
+        background: var(--current);
+        color: var(--pale);
+        border-color: var(--dark-rule);
+      }
+
+      .artifact.memo {
+        grid-column: span 7;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      .artifact.outreach {
+        grid-column: span 5;
+        background: var(--current-surface);
+        color: var(--pale);
+        border-color: var(--dark-rule);
+      }
+
+      .artifact-kicker {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid currentColor;
+        opacity: 0.82;
+      }
+
+      .artifact h3 {
+        margin: 72px 0 22px;
+        font-family: var(--display);
+        font-size: clamp(38px, 4vw, 60px);
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        line-height: 0.98;
+      }
+
+      .artifact p {
+        max-width: 500px;
+        color: inherit;
+        line-height: 1.55;
+        opacity: 0.76;
+      }
+
+      .artifact .mini-mark {
+        position: absolute;
+        width: 84px;
+        right: 28px;
+        bottom: 26px;
+      }
+
+      .deck h3 {
+        max-width: 380px;
+      }
+
+      .deck .date {
+        position: absolute;
+        left: 32px;
+        bottom: 32px;
+        color: var(--citron);
+      }
+
+      .memo {
+        font-family: var(--sans);
+      }
+
+      .memo .memo-head {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .memo-fields {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        gap: 9px 18px;
+        margin-top: 28px;
+        font-size: 14px;
+      }
+
+      .memo-fields .label {
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+      }
+
+      .memo-summary {
+        margin-top: 28px;
+        padding-top: 22px;
+        border-top: 1px solid var(--rule);
+      }
+
+      .memo-summary strong {
+        color: var(--coral);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .memo-summary p {
+        max-width: 620px;
+        margin-top: 12px;
+        color: var(--ink-soft);
+        font-size: 15px;
+        line-height: 1.58;
+        opacity: 1;
+      }
+
+      .status {
+        color: var(--citron);
+      }
+
+      .outreach blockquote {
+        max-width: 440px;
+        margin: 72px 0 20px;
+        font-family: var(--display);
+        font-size: 38px;
+        line-height: 1.02;
+        letter-spacing: -0.035em;
+      }
+
+      .voice-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .voice-card {
+        min-height: 320px;
+        padding: 32px;
+        border: 1px solid var(--page-rule);
+        background: var(--page-surface);
+      }
+
+      .voice-card.good {
+        border-top: 4px solid var(--mineral);
+      }
+
+      .voice-card.bad {
+        border-top: 4px solid var(--coral);
+      }
+
+      .voice-card h3 {
+        margin: 48px 0 18px;
+        font-family: var(--display);
+        font-size: 34px;
+        font-weight: 500;
+      }
+
+      .voice-card p {
+        color: var(--page-muted);
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .operating-principles {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        border-top: 1px solid var(--page-rule);
+        border-left: 1px solid var(--page-rule);
+      }
+
+      .principle {
+        min-height: 240px;
+        padding: 28px;
+        border-right: 1px solid var(--page-rule);
+        border-bottom: 1px solid var(--page-rule);
+      }
+
+      .principle h3 {
+        margin: 48px 0 12px;
+        font-size: 24px;
+        letter-spacing: -0.02em;
+      }
+
+      .principle p {
+        color: var(--page-muted);
+        line-height: 1.58;
+      }
+
+      .finale {
+        background: var(--current);
+        color: var(--pale);
+        border-top-color: var(--dark-rule);
+      }
+
+      .finale .section-index,
+      .finale .eyebrow {
+        color: var(--mineral-bright);
+      }
+
+      .finale .section-head p {
+        color: var(--pale-muted);
+      }
+
+      .checklist {
+        counter-reset: guide;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+        border-top: 1px solid var(--dark-rule);
+        border-left: 1px solid var(--dark-rule);
+      }
+
+      .check {
+        counter-increment: guide;
+        min-height: 130px;
+        padding: 24px;
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        gap: 18px;
+        align-items: start;
+        border-right: 1px solid var(--dark-rule);
+        border-bottom: 1px solid var(--dark-rule);
+      }
+
+      .check::before {
+        content: counter(guide, decimal-leading-zero);
+        color: var(--citron);
+        font-family: var(--mono);
+        font-size: 11px;
+      }
+
+      .check p {
+        margin: 0;
+        color: var(--pale-muted);
+        line-height: 1.5;
+      }
+
+      .footer {
+        padding: 32px 0;
+        color: var(--pale-muted);
+        background: var(--current);
+        border-top: 1px solid var(--dark-rule);
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      @media (max-width: 900px) {
+        .shell {
+          width: min(100% - 32px, 720px);
+        }
+
+        .cover,
+        .section-head,
+        .mark-story,
+        .type-row,
+        .palette-note {
+          grid-template-columns: 1fr;
+        }
+
+        .cover-mark {
+          min-height: 430px;
+        }
+
+        .audience-grid,
+        .logo-field,
+        .voice-grid,
+        .operating-principles,
+        .checklist {
+          grid-template-columns: 1fr;
+        }
+
+        .logo-example + .logo-example,
+        .rule-callout > div + div {
+          border-left: 0;
+          border-top: 1px solid var(--page-rule);
+        }
+
+        .artifact.website,
+        .artifact.deck,
+        .artifact.memo,
+        .artifact.outreach {
+          grid-column: 1 / -1;
+        }
+
+        .swatch {
+          grid-column: span 4 !important;
+        }
+
+        .rule-callout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .cover {
+          padding: 64px 0;
+        }
+
+        section {
+          padding: 80px 0;
+        }
+
+        .wordmark span,
+        .topbar .meta:not(.mode-toggle) {
+          display: none;
+        }
+
+        .cover-proof {
+          grid-template-columns: 1fr;
+        }
+
+        .logo-lockup {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .lockup-text strong {
+          font-size: 32px;
+        }
+
+        .swatch {
+          grid-column: span 6 !important;
+        }
+
+        .memo-fields {
+          grid-template-columns: 72px 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="shell topbar-inner">
+        <div class="brandline">
+          <img src="assets/verata-mark-light.svg" alt="" id="nav-mark" />
+          <div class="wordmark"><strong>VERATA</strong><span>VENTURES</span></div>
+          <span class="meta">Brand guide / v1.0</span>
+        </div>
+        <button class="mode-toggle meta" id="mode-toggle" type="button">View dark mode</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="shell cover">
+        <div>
+          <div class="eyebrow meta">Live Mineral / Humanist Intelligence</div>
+          <h1>Judgment,<br />accelerated.</h1>
+          <p class="cover-lede">
+            Executive judgment with startup velocity. A founder-led identity built to
+            operate credibly across enterprises, capital, and operators.
+          </p>
+          <div class="cover-proof">
+            <div><span class="meta">Default</span><span>Light mode</span></div>
+            <div><span class="meta">Signal</span><span>Saturated dark</span></div>
+            <div><span class="meta">Posture</span><span>Founder visible</span></div>
+          </div>
+        </div>
+        <div class="cover-mark">
+          <span class="meta">One operator / multiplied execution</span>
+          <img src="assets/verata-mark-expressive.svg" alt="Verata Ventures expressive V mark" />
+          <span class="meta folio">VV / 01</span>
+        </div>
+      </div>
+
+      <section>
+        <div class="shell">
+          <div class="section-head">
+            <span class="section-index meta">01 / Position</span>
+            <div>
+              <h2>One character. Three rooms.</h2>
+              <p>
+                Verata does not become a different company for each audience. The
+                evidence changes; the judgment, directness, and accountability stay fixed.
+              </p>
+            </div>
+          </div>
+          <div class="audience-grid">
+            <article class="audience">
+              <span class="meta">Capital</span>
+              <h3>Venture investors</h3>
+              <p>Pattern recognition, capital efficiency, and a fast path from thesis to evidence.</p>
+              <p class="result">“This operator can make an idea testable without wasting time or capital.”</p>
+            </article>
+            <article class="audience">
+              <span class="meta">Enterprise</span>
+              <h3>Corporate partners</h3>
+              <p>Large-organization fluency, controlled execution, and decisions that survive scrutiny.</p>
+              <p class="result">“This is startup speed without startup chaos.”</p>
+            </article>
+            <article class="audience">
+              <span class="meta">Direct</span>
+              <h3>Founders and operators</h3>
+              <p>Senior access, practical help, honest tradeoffs, and visible progress.</p>
+              <p class="result">“I will work with the person whose judgment I bought.”</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell">
+          <div class="section-head">
+            <span class="section-index meta">02 / Mark</span>
+            <div>
+              <h2>One to many.</h2>
+              <p>
+                One incoming stroke becomes three parallel outgoing trajectories. Four flat
+                terminals share one top line; a calculated two-color miter closes the lower
+                vertex. The mark makes the operating model visible: one accountable operator
+                with multiplied execution.
+              </p>
+            </div>
+          </div>
+          <div class="logo-field">
+            <div class="logo-example light">
+              <span class="meta">Formal / light</span>
+              <div class="logo-lockup">
+                <img src="assets/verata-mark-light.svg" alt="" />
+                <div class="lockup-text"><strong>VERATA</strong><span>VENTURES</span></div>
+              </div>
+            </div>
+            <div class="logo-example dark">
+              <span class="meta">Expressive / dark only</span>
+              <div class="logo-lockup">
+                <img src="assets/verata-mark-expressive.svg" alt="" />
+                <div class="lockup-text"><strong>VERATA</strong><span>VENTURES</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="mark-story">
+            <span class="meta">Usage discipline</span>
+            <p>
+              Locked master / 22 July 2026. Reuse the supplied asset rather than redrawing it.
+              The formal mark carries everyday credibility. The expressive version is a gear
+              change for launches, social assets, events, and dark presentation dividers. It
+              never appears on the light background.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell">
+          <div class="section-head">
+            <span class="section-index meta">03 / Color</span>
+            <div>
+              <h2>Mineral restraint. Venture signal.</h2>
+              <p>
+                Cool neutrals and mineral teal provide authority without inherited formality.
+                Citron and coral appear as signals, not decoration.
+              </p>
+            </div>
+          </div>
+          <div class="palette">
+            <div class="swatch" style="background:#f3f7f6"><strong>Cool Mist</strong><span class="meta">#F3F7F6</span></div>
+            <div class="swatch" style="background:#fcfefd"><strong>Paper</strong><span class="meta">#FCFEFD</span></div>
+            <div class="swatch dark-text" style="background:#071b18"><strong>Deep Ink</strong><span class="meta">#071B18</span></div>
+            <div class="swatch dark-text" style="background:#00877e"><strong>Mineral</strong><span class="meta">#00877E</span></div>
+            <div class="swatch" style="background:#c7f23a"><strong>Volt Citron</strong><span class="meta">#C7F23A</span></div>
+            <div class="swatch" style="background:#ff5a46"><strong>Signal Coral</strong><span class="meta">#FF5A46</span></div>
+          </div>
+          <div class="palette-note">
+            <span class="meta">Coverage</span>
+            <p><strong>Light:</strong> 80–90% neutral, 5–8% teal, less than 2% citron and coral combined.</p>
+            <p><strong>Dark:</strong> richer mineral fields are allowed, but citron and coral still communicate status or action.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell">
+          <div class="section-head">
+            <span class="section-index meta">04 / Type</span>
+            <div>
+              <h2>Human judgment. Operating clarity.</h2>
+              <p>
+                Typography changes role without changing character. The serif speaks in
+                public; the sans does the work; the mono proves what happened.
+              </p>
+            </div>
+          </div>
+          <div class="type-specimen">
+            <div class="type-row">
+              <div class="type-role"><span class="meta">Newsreader / Public voice</span></div>
+              <div class="type-display">Executive judgment.<br />Startup velocity.</div>
+            </div>
+            <div class="type-row">
+              <div class="type-role"><span class="meta">Instrument Sans / Operating voice</span></div>
+              <div class="type-sans">Build what is worth building, validate it quickly, and make the next decision visible.</div>
+            </div>
+            <div class="type-row">
+              <div class="type-role"><span class="meta">Geist Mono / Evidence voice</span></div>
+              <div class="type-mono">Decision memo 034 / status recommended<br />22 jul 2026 / phase gate review</div>
+            </div>
+          </div>
+          <div class="rule-callout">
+            <div><span class="meta">Public</span><p>Newsreader owns heroes, covers, section openers, pull quotes, and editorial cards.</p></div>
+            <div><span class="meta">Operational</span><p>Instrument Sans owns memos, reports, body copy, navigation, UI, and data. Mono is metadata only.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell">
+          <div class="section-head">
+            <span class="section-index meta">05 / Applications</span>
+            <div>
+              <h2>One system across the work.</h2>
+              <p>
+                The same rules move from public narrative to operating evidence without
+                turning every artifact into a miniature marketing page.
+              </p>
+            </div>
+          </div>
+          <div class="artifact-grid">
+            <article class="artifact website">
+              <div class="artifact-kicker"><span class="meta">Website / light default</span><span class="meta">01</span></div>
+              <h3>Executive judgment.<br />Startup velocity.</h3>
+              <p>Founder-led venture building for enterprises, capital, and operators.</p>
+              <img class="mini-mark" src="assets/verata-mark-light.svg" alt="" />
+            </article>
+            <article class="artifact deck">
+              <div class="artifact-kicker"><span class="meta">Partner brief</span><span class="meta">Confidential</span></div>
+              <h3>Corporate venture brief</h3>
+              <span class="meta date">22 Jul 2026</span>
+              <img class="mini-mark" src="assets/verata-mark-expressive.svg" alt="" />
+            </article>
+            <article class="artifact memo">
+              <div class="memo-head"><span class="meta">Decision memo 034</span><span class="meta status">Status recommended ●</span></div>
+              <div class="memo-fields">
+                <span class="label">TO:</span><span>Executive Partners</span>
+                <span class="label">FROM:</span><span>Operating Partner</span>
+                <span class="label">DATE:</span><span>22 May 2025</span>
+                <span class="label">SUBJECT:</span><span>Studio Build Program / Phase Gate Review</span>
+              </div>
+              <div class="memo-summary">
+                <strong>Executive summary</strong>
+                <p>Recommend proceeding to Phase Gate based on validated customer signal, capability fit, and capital efficiency.</p>
+              </div>
+            </article>
+            <article class="artifact outreach">
+              <div class="artifact-kicker"><span class="meta">Outreach editorial</span><span class="meta status">Judgment, accelerated.</span></div>
+              <blockquote>We build what’s worth building, then build it with traction.</blockquote>
+              <p>Direct senior accountability for consequential new ventures.</p>
+              <img class="mini-mark" src="assets/verata-mark-expressive.svg" alt="" />
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell">
+          <div class="section-head">
+            <span class="section-index meta">06 / Voice</span>
+            <div>
+              <h2>Measured conviction.</h2>
+              <p>
+                Verata sounds like a senior operator making the next decision clear. It
+                does not sound like a committee, a motivational founder post, or an AI assistant.
+              </p>
+            </div>
+          </div>
+          <div class="voice-grid">
+            <article class="voice-card good">
+              <span class="meta">Use</span>
+              <h3>Lead with the decision.</h3>
+              <p>Proceed to the pilot. Three customer signals are strong enough to justify the next phase.</p>
+            </article>
+            <article class="voice-card bad">
+              <span class="meta">Avoid</span>
+              <h3>Do not hide in abstraction.</h3>
+              <p>After a detailed evaluation of a number of potentially relevant factors, we believe there may be an opportunity to consider moving forward.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell">
+          <div class="section-head">
+            <span class="section-index meta">07 / System</span>
+            <div>
+              <h2>Rules future work can inherit.</h2>
+              <p>
+                The guide is built for people and machines. Exact tokens, asset files,
+                and a compact AI brief keep new artifacts consistent without copying a screenshot.
+              </p>
+            </div>
+          </div>
+          <div class="operating-principles">
+            <article class="principle"><span class="meta">Source 01</span><h3>BRAND.md</h3><p>Position, audience, voice, full design rationale, and artifact behavior.</p></article>
+            <article class="principle"><span class="meta">Source 02</span><h3>DESIGN.md</h3><p>Concise implementation contract for designers, developers, and QA.</p></article>
+            <article class="principle"><span class="meta">Source 03</span><h3>tokens.json / tokens.css</h3><p>Exact colors, typography, spacing, shape, layout, and motion values.</p></article>
+            <article class="principle"><span class="meta">Source 04</span><h3>ai-brief.md</h3><p>Reusable system prompt, artifact add-ons, validation, and automatic rejection criteria.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="finale">
+        <div class="shell">
+          <div class="section-head">
+            <span class="section-index meta">08 / Quality gate</span>
+            <div>
+              <h2>Before anything ships.</h2>
+              <p>Every artifact should pass these checks before it represents Verata Ventures.</p>
+            </div>
+          </div>
+          <div class="checklist">
+            <div class="check"><p>Executive judgment and startup velocity are both visible.</p></div>
+            <div class="check"><p>The founder-led structure is represented honestly, without fake scale.</p></div>
+            <div class="check"><p>Typography follows public, operating, and evidence roles.</p></div>
+            <div class="check"><p>Light is the default; dark is an intentional gear change.</p></div>
+            <div class="check"><p>Citron and coral communicate meaning rather than decorate space.</p></div>
+            <div class="check"><p>The composition leads with one idea, not a generic grid of equal cards.</p></div>
+            <div class="check"><p>Claims are specific, supportable, and free of hype.</p></div>
+            <div class="check"><p>Contrast, reduced motion, and document legibility are verified.</p></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="shell footer-inner">
+        <span class="meta">Verata Ventures / Brand guide v1.0</span>
+        <span class="meta">Judgment, accelerated.</span>
+      </div>
+    </footer>
+
+    <script>
+      const root = document.documentElement;
+      const button = document.getElementById('mode-toggle');
+      const navMark = document.getElementById('nav-mark');
+
+      button.addEventListener('click', () => {
+        const dark = root.dataset.pageTheme === 'dark';
+        root.dataset.pageTheme = dark ? 'light' : 'dark';
+        button.textContent = dark ? 'View dark mode' : 'View light mode';
+        navMark.src = dark ? 'assets/verata-mark-light.svg' : 'assets/verata-mark-dark.svg';
+      });
+    </script>
+  </body>
+</html>

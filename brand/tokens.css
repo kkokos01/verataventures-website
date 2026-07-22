@@ -1,0 +1,88 @@
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --vv-mist: #f3f7f6;
+  --vv-paper: #fcfefd;
+  --vv-ink: #071b18;
+  --vv-ink-soft: #314a45;
+  --vv-steel: #5b706b;
+  --vv-rule: #c7d2cf;
+  --vv-mineral: #00877e;
+  --vv-mineral-text: #007a73;
+  --vv-mineral-deep: #006c65;
+  --vv-mineral-bright: #15b8aa;
+  --vv-citron: #c7f23a;
+  --vv-coral: #ff5a46;
+  --vv-current: #03231f;
+  --vv-current-surface: #07342f;
+  --vv-current-raised: #0a4039;
+  --vv-pale: #f4faf8;
+  --vv-pale-muted: #b5c8c4;
+  --vv-dark-rule: #35645d;
+
+  --vv-background: var(--vv-mist);
+  --vv-surface: var(--vv-paper);
+  --vv-text: var(--vv-ink);
+  --vv-text-secondary: var(--vv-ink-soft);
+  --vv-text-muted: var(--vv-steel);
+  --vv-border: var(--vv-rule);
+  --vv-accent: var(--vv-mineral-text);
+  --vv-accent-visual: var(--vv-mineral);
+  --vv-accent-strong: var(--vv-mineral-deep);
+  --vv-signal: var(--vv-citron);
+  --vv-decision: var(--vv-coral);
+
+  --vv-font-display: 'Newsreader', Georgia, serif;
+  --vv-font-sans: 'Instrument Sans', 'Aptos', sans-serif;
+  --vv-font-mono: 'Geist Mono', 'SFMono-Regular', monospace;
+
+  --vv-space-2xs: 2px;
+  --vv-space-xs: 4px;
+  --vv-space-sm: 8px;
+  --vv-space-md: 16px;
+  --vv-space-lg: 24px;
+  --vv-space-xl: 32px;
+  --vv-space-2xl: 48px;
+  --vv-space-3xl: 64px;
+  --vv-space-4xl: 96px;
+  --vv-space-5xl: 128px;
+
+  --vv-content-max: 1240px;
+  --vv-reading-max: 720px;
+  --vv-radius-control: 2px;
+  --vv-radius-status: 999px;
+  --vv-rule-width: 1px;
+
+  --vv-duration-micro: 100ms;
+  --vv-duration-short: 160ms;
+  --vv-duration-standard: 280ms;
+  --vv-duration-reveal: 480ms;
+  --vv-ease-enter: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --vv-ease-exit: cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  --vv-ease-move: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --vv-background: var(--vv-current);
+  --vv-surface: var(--vv-current-surface);
+  --vv-surface-raised: var(--vv-current-raised);
+  --vv-text: var(--vv-pale);
+  --vv-text-secondary: var(--vv-pale-muted);
+  --vv-text-muted: var(--vv-pale-muted);
+  --vv-border: var(--vv-dark-rule);
+  --vv-accent: var(--vv-mineral-bright);
+  --vv-accent-visual: var(--vv-mineral-bright);
+  --vv-accent-strong: #55d9cd;
+  --vv-signal: var(--vv-citron);
+  --vv-decision: var(--vv-coral);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --vv-duration-micro: 0ms;
+    --vv-duration-short: 0ms;
+    --vv-duration-standard: 0ms;
+    --vv-duration-reveal: 0ms;
+  }
+}
